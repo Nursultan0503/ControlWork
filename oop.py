@@ -1,12 +1,9 @@
 from abc import ABC, abstractmethod
 import math
 
-# ==========================================
 # 1. ИНКАПСУЛЯЦИЯ
-# ==========================================
 class Person:
     def __init__(self):
-        # Инициализируем приватный атрибут (два нижних подчеркивания)
         self.__age = 0
 
     def set_age(self, age):
@@ -21,13 +18,11 @@ class Person:
 print("--- 1. Инкапсуляция ---")
 p = Person()
 p.set_age(25)
-print(p.get_age())  # Вывод: 25
-p.set_age(-5)       # Должна быть ошибка или предупреждение
+print(p.get_age())
+p.set_age(-5)
 
 
-# ==========================================
 # 2. НАСЛЕДОВАНИЕ
-# ==========================================
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -46,13 +41,11 @@ class Cat(Animal):
 print("\n--- 2. Наследование ---")
 dog = Dog("Buddy")
 cat = Cat("Kitty")
-print(dog.name, dog.speak())  # Вывод: Buddy Woof
-print(cat.name, cat.speak())  # Вывод: Kitty Meow
+print(dog.name, dog.speak())
+print(cat.name, cat.speak())
 
 
-# ==========================================
 # 3. ПОЛИМОРФИЗМ
-# ==========================================
 class Vehicle:
     def move(self):
         return "Vehicle is moving"
@@ -65,20 +58,17 @@ class Bicycle(Vehicle):
     def move(self):
         return "Bicycle is pedaling"
 
-# Общая функция, которая вызывает метод move() у переданного объекта
 def move(vehicle):
     return vehicle.move()
 
 print("\n--- 3. Полиморфизм ---")
 car = Car()
 bike = Bicycle()
-print(move(car))   # Вывод: Car is driving
-print(move(bike))  # Вывод: Bicycle is pedaling
+print(move(car))
+print(move(bike))
 
 
-# ==========================================
 # 4. АБСТРАКЦИЯ
-# ==========================================
 class Shape(ABC):
     @abstractmethod
     def area(self):
@@ -97,12 +87,10 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        # Формула площади круга: π * r^2
         return round(math.pi * (self.radius ** 2))
 
 print("\n--- 4. Абстракция ---")
 rect = Rectangle(10, 5)
 circle = Circle(7)
-# В ТЗ преподавателя опечатка (10*5 = 50, а не 55). Код выдаст правильные 50.
 print(rect.area())    
-print(circle.area())  # Вывод: 154
+print(circle.area())

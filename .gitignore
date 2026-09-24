@@ -1,8 +1,6 @@
-# Виртуальное окружение
 venv/
 .env
 
-# Кэш Python и PyCharm
 __pycache__/
 *.pyc
 .idea/
